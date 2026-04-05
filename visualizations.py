@@ -148,27 +148,3 @@ plt.show()
 print("✅  Saved → feature_importance.png")
 
 
-
-metrics = {"MSE": 0.14, "MAE": 0.22, "R²": 0.86}
-
-fig, axes = plt.subplots(1, 3, figsize=(10, 3.5))
-fig.patch.set_facecolor(BG)
-colors_m = ["#52B788", "#40916C", "#2D6A4F"]
-
-for ax, (name, val), col in zip(axes, metrics.items(), colors_m):
-    ax.set_facecolor(BG)
-    circle = plt.Circle((0.5, 0.5), 0.38, color=col, zorder=2)
-    ax.add_patch(circle)
-    ax.text(0.5, 0.54, f"{val:.2f}", ha="center", va="center",
-            fontsize=26, fontweight="bold", color="white", zorder=3)
-    ax.text(0.5, 0.15, name, ha="center", va="center",
-            fontsize=14, fontweight="bold", color="#333")
-    ax.set_xlim(0, 1); ax.set_ylim(0, 1)
-    ax.axis("off")
-
-fig.suptitle("Model Performance Metrics  (Random Forest Regressor)",
-             fontsize=13, fontweight="bold", y=1.02)
-plt.tight_layout()
-plt.savefig("model_metrics.png", dpi=150, bbox_inches="tight")
-plt.show()
-print("✅  Saved → model_metrics.png")
